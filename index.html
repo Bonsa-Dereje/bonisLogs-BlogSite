@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boni's Logs - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Boni's Logs</a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Welcome to the Red Zone</h1>
+            <p>Thoughts, code, and everything in between.</p>
+        </section>
+
+        <section class="search-container">
+            <input type="text" id="searchInput" placeholder="Search logs...">
+        </section>
+
+        <section class="blog-grid">
+            <!-- Posts will be rendered here by app.js -->
+        </section>
+    </main>
+
+    <footer>
+        <div class="newsletter">
+            <h3>Join the Squad</h3>
+            <p>Get the latest logs delivered to your inbox.</p>
+            <form id="newsletterForm" class="newsletter-form" novalidate>
+                <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <div id="errorMsg" class="error-msg">Please enter a valid email address.</div>
+            <div id="successMsg" class="success-msg"></div>
+        </div>
+        <p>&copy; 2026 Boni's Logs. Built with Vanilla JS.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
