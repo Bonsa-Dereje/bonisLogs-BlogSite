@@ -1,14 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Special+Elite&display=swap');
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../fonts/SFPRODISPLAYMEDIUM.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
 :root {
-    --bg-color: #fff5f5;
-    --card-bg: #ffffff;
-    --primary-red: #ff4d4d;
-    --dark-red: #8b0000;
-    --text-color: #2b0505;
-    --accent-color: #ffcccc;
-    --font-heading: 'Bangers', cursive;
-    --font-body: 'Special Elite', cursive;
+    --bg-color: #0f0f14;
+    --card-bg: #181820;
+    --primary-red: #5d96b1;
+    --dark-red: #2685df;
+    --text-color: #ffffff;
+    --accent-color: #2a2a35;
+    --font-heading: 'SF Pro Display', system-ui, sans-serif;
+    --font-body: 'SF Pro Display', system-ui, sans-serif;
+
     --gap: 2rem;
 }
 
@@ -28,7 +35,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
 header {
     background-color: var(--card-bg);
     padding: 1rem 2rem;
@@ -37,7 +43,7 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    box-shadow: 0 4px 6px rgba(139, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .logo {
@@ -46,7 +52,6 @@ header {
     color: var(--primary-red);
     text-decoration: none;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 0px var(--dark-red);
     transition: transform 0.2s;
 }
 
@@ -62,7 +67,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: var(--dark-red);
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1.2rem;
     position: relative;
@@ -85,7 +90,6 @@ nav a.active::after {
     width: 100%;
 }
 
-/* Main Layout */
 main {
     flex: 1;
     max-width: 1200px;
@@ -94,19 +98,20 @@ main {
     padding: 2rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     color: var(--dark-red);
     margin-bottom: 1rem;
 }
 
-/* Hero Section */
 .hero {
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem;
     background-color: var(--accent-color);
-    border: 2px dashed var(--primary-red);
+    border: 2px solid var(--primary-red);
     border-radius: 10px;
 }
 
@@ -114,7 +119,6 @@ h1, h2, h3 {
     font-size: 3rem;
 }
 
-/* Search Bar */
 .search-container {
     display: flex;
     justify-content: center;
@@ -125,30 +129,29 @@ h1, h2, h3 {
     padding: 10px 15px;
     font-family: var(--font-body);
     font-size: 1.1rem;
-    border: 2px solid var(--dark-red);
+    border: 2px solid var(--primary-red);
     border-radius: 25px;
     width: 100%;
     max-width: 400px;
     background-color: var(--card-bg);
+    color: white;
     outline: none;
     transition: box-shadow 0.3s;
 }
 
 #searchInput:focus {
-    box-shadow: 0 0 10px var(--primary-red);
+    box-shadow: 0 0 12px var(--primary-red);
 }
 
-/* Blog Grid */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-/* Blog Card */
 .blog-card {
     background: var(--card-bg);
-    border: 2px solid var(--text-color);
+    border: 2px solid #333;
     border-radius: 8px;
     padding: 1.5rem;
     position: relative;
@@ -159,7 +162,7 @@ h1, h2, h3 {
 
 .blog-card:hover {
     transform: translateY(-5px);
-    box-shadow: 5px 5px 0px var(--primary-red);
+    box-shadow: 6px 6px 0px var(--primary-red);
 }
 
 .blog-card h3 {
@@ -169,23 +172,23 @@ h1, h2, h3 {
 
 .blog-card .date {
     font-size: 0.9rem;
-    color: #666;
+    color: #bbb;
     margin-bottom: 1rem;
 }
 
 .blog-card p {
     flex: 1;
     margin-bottom: 1.5rem;
+    color: #ddd;
 }
 
-/* Favorite Button */
 .fav-btn {
     align-self: flex-end;
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #ccc;
+    color: #666;
     transition: color 0.2s, transform 0.2s;
 }
 
@@ -199,14 +202,21 @@ h1, h2, h3 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-/* Footer & Newsletter */
 footer {
-    background-color: var(--dark-red);
+    background-color: #000;
     color: white;
     padding: 3rem 2rem;
     text-align: center;
@@ -219,7 +229,7 @@ footer {
 }
 
 .newsletter h3 {
-    color: var(--accent-color);
+    color: var(--primary-red);
 }
 
 .newsletter-form {
@@ -237,13 +247,15 @@ footer {
     border: none;
     border-radius: 5px;
     font-family: var(--font-body);
+    background-color: #222;
+    color: white;
 }
 
 .newsletter-form button {
     padding: 10px 20px;
     background-color: var(--primary-red);
     color: white;
-    border: 2px solid white;
+    border: none;
     border-radius: 5px;
     font-family: var(--font-heading);
     font-size: 1.2rem;
@@ -256,7 +268,6 @@ footer {
     color: var(--primary-red);
 }
 
-/* About Page */
 .about-content {
     background: var(--card-bg);
     padding: 2rem;
@@ -266,32 +277,172 @@ footer {
     margin: 0 auto;
 }
 
-/* Validations */
 .error-msg {
-    color: #ffadad;
+    color: #ff7b7b;
     font-size: 0.9rem;
     margin-top: 5px;
-    text-align: left;
     display: none;
 }
+
 .success-msg {
-    color: #ccffcc;
+    color: #7bffb2;
     font-size: 1rem;
     margin-top: 10px;
     display: none;
 }
 
-/* Media Queries */
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--primary-red);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--primary-red);
+}
+
+.modal-header h2 {
+    font-size: 2rem;
+    color: var(--dark-red);
+    margin-bottom: 0.5rem;
+}
+
+.modal-date {
+    display: block;
+    color: #bbb;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.modal-body {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #eee;
+    font-size: 1.1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1.5rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: white;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #333;
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
+.action-btn i {
+    font-style: normal;
+}
+
+.action-btn.favorite-btn.active {
+    color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.redirect-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 12px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.redirect-btn:hover {
+    background-color: #fff;
+    color: var(--primary-red);
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .hero h1 {
         font-size: 2rem;
     }
-    
+
     .newsletter-form {
         flex-direction: column;
     }
