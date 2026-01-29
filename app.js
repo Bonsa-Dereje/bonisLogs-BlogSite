@@ -60,14 +60,14 @@ let favorites = JSON.parse(localStorage.getItem('bonisFavorites')) || [];
 
 const blogGrid = document.querySelector('.blog-grid');
 
-// Truncate function for blog cards
+
 function truncateText(text, sentenceCount = 2) {
     const sentences = text.match(/[^.!?]+[.!?]+/g);
     if (!sentences) return text;
     return sentences.slice(0, sentenceCount).join(' ').trim() + '..';
 }
 
-// Render blog posts (cards)
+
 function renderPosts(posts) {
     if (!blogGrid) return;
 
@@ -99,13 +99,13 @@ function renderPosts(posts) {
     });
 }
 
-// Render favorite posts
+
 function renderFavorites() {
     const favPosts = blogPosts.filter(p => favorites.includes(p.id));
     renderPosts(favPosts);
 }
 
-// Toggle favorite
+
 function toggleFavorite(id) {
     if (favorites.includes(id)) {
         favorites = favorites.filter(favId => favId !== id);
@@ -122,7 +122,7 @@ function toggleFavorite(id) {
     }
 }
 
-// Modal Logic
+
 function createModal() {
     if (document.querySelector('.modal-overlay')) return;
 
@@ -147,7 +147,7 @@ function createModal() {
 
     document.body.appendChild(modalOverlay);
 
-    // Close logic
+    
     const closeBtn = modalOverlay.querySelector('.modal-close');
     closeBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', (e) => {
@@ -155,7 +155,7 @@ function createModal() {
     });
 }
 
-// Open modal with full content
+
 function openModal(post) {
     createModal();
 
@@ -171,7 +171,7 @@ function openModal(post) {
     date.textContent = post.date;
     body.textContent = post.content;
 
-    // Favorite button
+    
     const updateFavBtn = () => {
         const isFav = favorites.includes(post.id);
         favBtn.classList.toggle('active', isFav);
@@ -184,7 +184,7 @@ function openModal(post) {
         updateFavBtn();
     };
 
-    // Copy button
+    
     copyBtn.onclick = () => {
         navigator.clipboard.writeText(`${post.title}\n\n${post.content}`).then(() => {
             const originalText = copyBtn.textContent;
@@ -193,7 +193,7 @@ function openModal(post) {
         });
     };
 
-    // Share button
+    
     shareBtn.onclick = () => {
         if (navigator.share) {
             navigator.share({ title: post.title, text: post.content, url: window.location.href }).catch(console.error);
@@ -210,7 +210,7 @@ function openModal(post) {
     document.body.style.overflow = 'hidden';
 }
 
-// Close modal
+
 function closeModal() {
     const modal = document.querySelector('.modal-overlay');
     if (modal) {
@@ -219,7 +219,7 @@ function closeModal() {
     }
 }
 
-// Initialize
+
 document.addEventListener('DOMContentLoaded', () => {
     createModal();
     if (window.location.pathname.includes('favorites')) {
