@@ -1,4 +1,3 @@
-// Data
 const blogPosts = [
     {
         id: 1,
