@@ -79,6 +79,7 @@ function renderPosts(posts) {
 
     posts.forEach(post => {
         const isFav = favorites.includes(post.id);
+        //console.log(isFav);
         const card = document.createElement('article');
         card.className = 'blog-card';
         card.style.cursor = 'pointer';
